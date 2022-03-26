@@ -8,7 +8,8 @@ body {
 
 }
 
-.high-score {
+#highScores {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
+    color: black;
 }

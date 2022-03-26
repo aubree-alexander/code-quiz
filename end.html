@@ -5,19 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/style/css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+    <div>
+        <a href="./highscores.html" id="highscore-btn">View high scores</a>
+    </div>
     <div class="container">
         <div id="end" class="flex-center flex-column">
             <h1 id="finalScore">0</h1>
             <form class="end-form-container">
-                <h2 id="end-text">Enter your name below to save your score</h2>
-                <input type="text" name="name" id="username" placeholder="Enter your name">
-                <button class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)">Save</button>
+                <h2 id="end-text">All done!</h2>
+                <h3 id="final-score-text">Your final score is</h3>
+                <h3 id="enter-initials-text">Enter initials:</h3>
+                <input type="text" name="name" id="username" placeholder="Enter initials:">
+                <button class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)">Submit</button>
             </form>
             <a href="./game.html" class="btn">Play Again</a>
-            <a href="./game.html" class="btn">Go Home</a>
+            <a href="./index.html" class="btn">Go Home</a>
         </div>
     </div>
     <script src="./assets/end.js"></script>
