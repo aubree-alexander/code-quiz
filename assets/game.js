@@ -17,18 +17,18 @@ var MAX_QUESTIONS = 4
 
 //timer function
 
-// function startTimer() {
-//     interval = setInterval(function() {
-//         time--;
-//         timer.innerHTML = "Time: " + time;
+function startTimer() {
+    interval = setInterval(function() {
+        time--;
+        timer.innerHTML = "Time: " + time;
 
-//         if (time <= 0) {
-//             endQuiz()
-//         }
-//     }, 1000);
-// }
+        if (time <= 0) {
+            endQuiz()
+        }
+    }, 1000);
+}
 
-// startTimer()
+startTimer()
 
 
 //questions array
