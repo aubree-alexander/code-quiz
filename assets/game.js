@@ -10,7 +10,7 @@ let acceptingAnswers = true
 let score = 0
 let questionCounter = 0
 let availableQuestions = []
-var time = 30
+var time = 60
 var timer = document.querySelector(".timer")
 
 
@@ -27,6 +27,10 @@ function startTimer() {
     }, 1000);
 }
 
+startTimer()
+
+const SCORE_POINTS = 100
+const MAX_QUESTIONS = 4
 
 let questions = [
     {
@@ -64,10 +68,6 @@ let questions = [
 
 ]
 
-startTimer()
-
-const SCORE_POINTS = 100
-const MAX_QUESTIONS = 4
 
 startGame = () => {
     questionCounter = 0
@@ -114,6 +114,11 @@ choices.forEach(choice => {
             incrementScore(SCORE_POINTS)
         }
 
+        if(classToApply === 'incorrect') {
+            time = (time - 10)
+            alert("Incorrect - you lost 10 seconds!")
+        }
+
         selectedChoice.parentElement.classList.add(classToApply)
         
         setTimeout(() => {
@@ -123,19 +128,24 @@ choices.forEach(choice => {
     })
 })
 
+//function to clear interval and direct to end page
 function endQuiz() {
     clearInterval(interval)
     directToEndPage()
 }
 
-function directToEndPage() {
-    window.location.assign("../end.html")
-}
-
+//score calculator function
 incrementScore = num => {
     score +=num
     scoreText.innerText = score
 }
 
+//send user to end page
+
+function directToEndPage() {
+    window.location.assign("../end.html")
+}
+
+//start game function
 startGame()
 
