@@ -141,8 +141,6 @@ function endQuiz() {
     directToEndPage()
 }
 
-
-
 //score calculator function
 incrementScore = num => {
     score +=num
@@ -152,7 +150,7 @@ incrementScore = num => {
 //send user to end page
 
 function directToEndPage() {
-    window.location.assign('../end.html')
+    window.location.assign('./end.html')
 }
 
 //start game function

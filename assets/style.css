@@ -113,9 +113,11 @@ input::placeholder {
 }
 
 #username {
-    margin-bottom: 3rem;
+    margin-bottom: 25px;
+    margin-top: 15px;
     width: 100%;
     outline: none;
+    border: 1px solid;
 }
 
 #end-text {
@@ -123,12 +125,13 @@ input::placeholder {
     color: black;
 }
 
-#savescoreBtn {
-    border: none;
-}
 
 .fa-home {
     margin-left: 1rem;
     font-size: 2rem;
     color: rgb(28, 26, 26);
+}
+
+#enter-initials-text {
+    font-size: 14px;
 }
