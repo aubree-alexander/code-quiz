@@ -1,38 +1,39 @@
 //global variables
 
-const question = document.querySelector('#question');
-const choices = Array.from(document.querySelectorAll('.choice-text'));
-const progressText = document.querySelector('#progressText');
-const scoreText = document.querySelector('#score');
-const progressBarFull = document.querySelector('#progressBarFull');
-let currentQuestion = {}
-let acceptingAnswers = true
-let score = 0
-let questionCounter = 0
-let availableQuestions = []
+var question = document.querySelector('#question');
+var choices = Array.from(document.querySelectorAll('.choice-text'));
+var progressText = document.querySelector('#progressText');
+var scoreText = document.querySelector('#score');
+var currentQuestion = {}
+var acceptingAnswers = true
+var score = 0
+var questionCounter = 0
+var availableQuestions = []
 var time = 60
 var timer = document.querySelector(".timer")
+var SCORE_POINTS = 100
+var MAX_QUESTIONS = 4
 
 
 //timer function
 
-function startTimer() {
-    interval = setInterval(function() {
-        time--;
-        timer.innerHTML = "Time: " + time;
+// function startTimer() {
+//     interval = setInterval(function() {
+//         time--;
+//         timer.innerHTML = "Time: " + time;
 
-        if (time <= 0) {
-            endQuiz()
-        }
-    }, 1000);
-}
+//         if (time <= 0) {
+//             endQuiz()
+//         }
+//     }, 1000);
+// }
 
-startTimer()
+// startTimer()
 
-const SCORE_POINTS = 100
-const MAX_QUESTIONS = 4
 
-let questions = [
+//questions array
+
+var questions = [
     {
         question: 'The condition in an if / else statement is enclosed with:',
         choice1: 'quotes',
@@ -65,10 +66,9 @@ let questions = [
         choice4: 'parentheses',
         answer: 1,
     }
-
 ]
 
-
+//start game function
 startGame = () => {
     questionCounter = 0
     score = 0
@@ -76,6 +76,7 @@ startGame = () => {
     getNewQuestion()
 }
 
+//get new question after answer
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score)
@@ -84,14 +85,13 @@ getNewQuestion = () => {
 
     questionCounter++
     progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
-    progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
 
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+    var questionsIndex = Math.floor(Math.random() * availableQuestions.length)
     currentQuestion = availableQuestions[questionsIndex]
     question.innerText = currentQuestion.question
 
     choices.forEach(choice => {
-        const number = choice.dataset['number']
+        var number = choice.dataset['number']
         choice.innerText = currentQuestion['choice' + number]
     })
 
@@ -105,10 +105,10 @@ choices.forEach(choice => {
         if(!acceptingAnswers) return
 
         acceptingAnswers = false 
-        const selectedChoice = e.target
-        const selectedAnswer = selectedChoice.dataset['number']
+        var selectedChoice = e.target
+        var selectedAnswer = selectedChoice.dataset['number']
 
-        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+        var classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
 
         if(classToApply === 'correct') {
             incrementScore(SCORE_POINTS)
@@ -116,7 +116,12 @@ choices.forEach(choice => {
 
         if(classToApply === 'incorrect') {
             time = (time - 10)
-            alert("Incorrect - you lost 10 seconds!")
+
+            //for future optimization - append incorrect message to page
+                // var answerContainer = document.getElementById("answerContainer")
+                // var incorrectAnswer = document.createElement('p')
+                // incorrectAnswer.textContent = 'Incorrect'
+                // answerContainer.appendChild(incorrectAnswer)
         }
 
         selectedChoice.parentElement.classList.add(classToApply)
@@ -128,11 +133,15 @@ choices.forEach(choice => {
     })
 })
 
+
+
 //function to clear interval and direct to end page
 function endQuiz() {
     clearInterval(interval)
     directToEndPage()
 }
+
+
 
 //score calculator function
 incrementScore = num => {
@@ -143,7 +152,7 @@ incrementScore = num => {
 //send user to end page
 
 function directToEndPage() {
-    window.location.assign("../end.html")
+    window.location.assign('../end.html')
 }
 
 //start game function

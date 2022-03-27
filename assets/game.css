@@ -46,37 +46,30 @@ body {
 .incorrect {
     background: linear-gradient(32deg, rgba(230, 29, 29, 1) 0%, rgb(224, 11, 11, 1) 100%);
 }
-
-/*Heads up display*/ 
+ 
 #hud {
     display: flex;
     justify-content: space-between;
-
 }
 
 .hud-prefix {
     text-align: center;
-    font-size: 2rem;
+    font-size: 20px;;
 }
 
-.hug-main-text {
+.hud-main-text {
     text-align: center;
 }
 
-#progressBar {
-    width: 20rem;
-    height: 3rem;
-    border: 0.2rem solid rgb(11,223,36);
-    margin-top: 2rem;
-    border-radius: 50px;
-    overflow: hidden;
-}
 
-#progressBarFull {
-    height: 100%;
-    background: 0.2rem solid rgb(11,223,36);
-    width: 0%;
-}
+/* for future optimization */
+/* #answerContainer {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-style: italic;
+    
+} */
 
 /*MEDIA QUERIES*/ 
 
