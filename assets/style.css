@@ -17,13 +17,9 @@ body {
 
 h1 {
     font-size: 26px;
-    margin-bottom: 5rem;
+    margin-bottom: 35px;
 }
 
-h2 {
-    font-size: 4.2rem;
-    margin-bottom: 4rem;
-}
 
 .container {
     width: 100vw;
@@ -31,9 +27,8 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 80rem;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 25px;
 }
 
 .flex-column {
